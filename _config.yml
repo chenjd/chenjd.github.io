@@ -70,7 +70,7 @@ sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "Programmer | Author | Blogger | Speaker | Microsoft Developer Technologies MVP | 
 @Unity3d
  China"
-sidebar-avatar: img/avatar-chenjd.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar-chenjd.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
