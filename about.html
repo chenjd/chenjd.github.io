@@ -6,21 +6,32 @@ header-img: "img/about-bg.jpg"
 ---
 
 <!-- Language Selector -->
-<select onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+<!-- <select onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
     <option value="0" selected> 中文 Chinese </option>
     <option value="1"> 英语 English </option>
-</select>
+</select> -->
 
 <!-- Chinese Version -->
-<div class="zh post-container">
+<!-- <div class="zh post-container">
     <blockquote>
     </blockquote>
-</div>
+</div> -->
 
 <!-- English Version -->
 <div class="en post-container">
     <blockquote>
+        Programmer | Author | Blogger | Speaker | Microsoft Developer Technologies MVP | @Unity3d China
     </blockquote>
+    <p>
+        Hi, I'm Jiadong Chen (<em><a href="https://twitter.com/chen_jd">@chen_jd</a></em>). And I've been working for <a href="https://unity.com/">Unity</a> as a Field Engineer since 2017.<br>
+
+        I have participated in Unite (Beijing & Shanghai) twice as a <a href="https://twitter.com/chen_jd/status/1140481426816552960">speaker</a>.<br>
+
+        Before joining Unity, I was a <a href="https://github.com/chenjd">game programmer</a> and the organizer of the Beijing Unity User Group(UUG).<br>
+
+        I like to write technical blogs (of course mostly in Chinese), and my first <a href="https://item.jd.com/12035114.html">book about Unity</a> was published in 2016. Besides, I got my first <a href="https://mvp.microsoft.com/en-us/PublicProfile/5001664">Microsoft MVP Award</a> in 2015.<br>
+
+    </p>
 </div>
 
 <!-- Handle Language Change -->
@@ -42,28 +53,3 @@ header-img: "img/about-bg.jpg"
 
 
 
-
-{% if site.disqus_username %}
-<!-- disqus 评论框 start -->
-<div class="comment">
-    <div id="disqus_thread" class="disqus-thread">
-
-    </div>
-</div>
-<!-- disqus 评论框 end -->
-
-<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "{{site.disqus_username}}";
-    var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
-    var disqus_url = "{{site.url}}{{page.url}}";
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus 公共JS代码 end -->
-{% endif %}
