@@ -58,10 +58,10 @@ disqus_username: chenjd-blog
 
 # Analytics settings
 # Baidu Analytics
-ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
+# ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
 # Google Analytics
-ga_track_id: 'UA-143776175-1'            # Format: UA-xxxxxx-xx
-ga_domain: chenjd.github.io
+ga_track_id: 'UA-143776175-2'            # Format: UA-xxxxxx-xx
+ga_domain: chenjd.xyz
 
 
 

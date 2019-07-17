@@ -9,6 +9,7 @@ tags:
     - Unity
 ---
 
+>This post was first published at [Medium](https://medium.com/@chen_jd/mesh-compression-in-unity-why-is-the-memory-of-my-game-unchanged-76f5d4e8244e)
 
 
 ## 0x00 Preface
