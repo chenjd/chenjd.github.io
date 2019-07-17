@@ -38,6 +38,7 @@ And in the **Model importer**:
 ![](/img/2019-07-15/importer.jpg)
 
 Among them, the implementation of **Vertex Compression** is to set the data format of the vertex channel to 16bit, so it can save runtime memory usage (float->half).
+![](/img/2019-07-15/format.png)
 
 **Optimize Mesh Data** is mainly used to remove unwanted channel and exclude additional data. Because it has nothing to do with compression, this article does not discuss this option.
 
