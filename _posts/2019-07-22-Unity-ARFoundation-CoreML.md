@@ -11,17 +11,17 @@ tags:
     - XR
 ---
 
->This post was first published at [Medium](https://medium.com/@chen_jd/mesh-compression-in-unity-why-is-the-memory-of-my-game-unchanged-76f5d4e8244e)
+>This post was first published at [Medium](https://medium.com/@chen_jd/unity-ar-foundation-and-coreml-hand-detection-and-tracking-b74c592206c5)
 
 
 
-## 0x01 Description
+## 0x00 Description
 
 The [AR Foundation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@1.5/manual/index.html) package in Unity wraps the low-level API such as ARKit, ARCore into a cohesive whole.
 
 The CoreML is a framework that can be harnessed to integrate machine learning models into your app on iOS platform.
 
-This article and the demo project at then end of the article show how to enable the CoreML to work with AR Foundation in Unity. With AR Foundation in Unity and CoreML on iOS, we can interact with virtual objects with our hands. 
+This article and the demo project at the end of the article show how to enable the CoreML to work with AR Foundation in Unity. With AR Foundation in Unity and CoreML on iOS, we can interact with virtual objects with our hands. 
 
 This article refers to Gil Nakache's article and uses the mlmodel used in his article. In his article, he describes how to implement these on the native iOS platform with Swift.
 
@@ -35,7 +35,7 @@ The ARFoundation Plugin: 1.5.0-preview.5
 
 iPhone 7: 12.3.1
 
-## 0x01 Implemention
+## 0x01 Implementation
 
 #### Import AR Foundation Plugin
 
@@ -46,10 +46,10 @@ For convenience, I use the local package import. This is very simple, just modif
     "com.unity.xr.arkit": "file:../ARPackages/com.unity.xr.arkit
 ```
 
-After importing the AR Foundation plugin, you can create some related components in the scene, such as AR Session, AR Session Origin.
+After importing the AR Foundation plugin, we can create some related components in the scene, such as AR Session, AR Session Origin.
 ![](/img/2019-07-23/handdetection_2.png)
 
-Then in our script, listen to the `frameReceived` callback to get the data for each frame.
+Then in our script, listen to the `frameReceived` event to get the data for each frame.
 
         if (m_CameraManager != null)
         {
@@ -58,7 +58,7 @@ Then in our script, listen to the `frameReceived` callback to get the data for e
 
 #### Create a Swift plugin for Unity
 
-In order for C# to communicate with Swift, you need to create an object-c file as a bridge.
+In order for C# to communicate with Swift, we need to create an object-c file as a bridge.
 
 In this way, C# can call the method in Object-C by `[DllImport("__Internal")]`. Then Object-C will call Swift via `@objc`. After importing `UnityInterface.h`, Swift can call the `UnitySendMessage` method to pass data to C#.
 
@@ -87,11 +87,10 @@ So you can manually specify a version, or create a script in Unity to automatica
 
 #### Import mlmodel
 
-Add the HandModel to your Xcode project, then it will generate Objective-C model class automatically. But I want the mlmodel to be generated a Swift class. We can set it at **Build Settings/CoreML Model Compiler - Code Generation Language** from Auto to Swift.
+Add the HandModel to our Xcode project, then it will generate an Objective-C model class automatically. But I want the mlmodel to generate a Swift class. We can set it at **Build Settings/CoreML Model Compiler - Code Generation Language** from Auto to Swift.
 
-The we get a gutomatically generated Swift model class called HandModel.
+Then we get an automatically generated Swift model class called HandModel.
 ![](/img/2019-07-23/handmodel.png)
-
 Of course, if you don't want to add it manually, you can also add it automatically through a build post processing script in Unity.
 
 #### How to get the ARFrame ptr from AR Foundation
@@ -177,9 +176,7 @@ Then we will get the position data in viewport space.
 ![](/img/2019-07-23/handdetection_3.png)
 Viewport space is normalized and relative to the camera. The bottom-left of the viewport is (0,0); the top-right is (1,1). The z position is in world units from the camera. 
 
-Once we get the position in viewport space, we transform it from viewport space to world space via `ViewportToWorldPoint` function in Unity.
-
-Provide the function with a vector where the x-y components of the vector come from Hand Detection and the z component is the distance of the resulting plane from the camera. 
+Once we get the position in viewport space, we transform it from viewport space to world space via `ViewportToWorldPoint` function in Unity. Provide the function with a vector where the x-y components of the vector come from Hand Detection and the z component is the distance of the resulting plane from the camera. 
 
        var handPos = new Vector3();
        handPos.x = pos.x;
@@ -187,7 +184,7 @@ Provide the function with a vector where the x-y components of the vector come f
        handPos.z = 4;//m_Cam.nearClipPlane;
        var handWorldPos = m_Cam.ViewportToWorldPoint(handPos);
 
-We can create a new object in Unity with the world space position and move the old object to the world space position. In other words, the position of the object is controlled according to the position of the hand.
+We can create a new object in Unity with the world space position or move the old object to the world space position. In other words, the position of the object is controlled according to the position of the hand.
 ![](/img/2019-07-23/handdetection_4.png)
 
 
