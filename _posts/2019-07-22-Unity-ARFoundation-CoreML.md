@@ -2,7 +2,7 @@
 layout:     post
 title:      "Unity AR Foundation and CoreML: Hand detection and tracking"
 subtitle:   ""
-date:       2019-07-23 12:00:00
+date:       2019-07-22 12:00:00
 author:     "chenjd"
 header-img: "img/2019-07-23/handdetection_1.png"
 tags:
