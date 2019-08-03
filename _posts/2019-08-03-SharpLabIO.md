@@ -10,7 +10,7 @@ tags:
     - .NET
 ---
 
->This post was first published at [Medium](https://medium.com/@chen_jd/using-the-geometry-shader-to-achieve-model-explosion-effect-cf6d5ec03020)
+>This post was first published at [Medium](https://medium.com/@chen_jd/recommend-a-very-interesting-website-to-net-unity-programmers-sharplab-io-ce3d779e0f82)
 
 
 
