@@ -27,7 +27,7 @@ They came from models used by Greg Turk and Marc Levoy at Stanford. But the Bunn
 As you can see, it has 106,289 vertices and 212,574 polygons.
 ![](/img/2019-07-31/mesh.png)
 
-Ok, now let's import Armadillo's obj file into Unity and you can see that this monster is already in our scene. Next we will use the geometry shader to achieve the desired explosion visual effect.
+Ok, now let's import the Stanford Armadillo obj file into Unity and you can see that this monster is already in our scene. Next we will use the geometry shader to achieve the desired explosion visual effect.
 ![](/img/2019-07-31/scene.png)
 
 When I mentioned the geometry shader, I used it to generate more new vertices and polygons to achieve the desired effect, such as using it to generate grass on the GPU for [real-time rendering of real grass](https://github.com/chenjd/Realistic-Real-Time-Grass-Rendering-With-Unity).
